@@ -1,6 +1,7 @@
 export default {
     // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-    ssr: false,
+    target: 'server',
+    ssr: true,
 
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
@@ -42,10 +43,41 @@ export default {
     modules: [
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
+        '@nuxtjs/auth-next'
     ],
 
+    auth: {
+        strategies: {
+            local: false,
+            cloud: {
+                scheme: 'oauth2',
+                endpoints: {
+                    authorization: 'https://auth.asklios.de/auth/realms/test/protocol/openid-connect/auth',
+                    token: 'https://auth.asklios.de/auth/realms/test/protocol/openid-connect/token',
+                    userInfo: 'https://auth.asklios.de/auth/realms/test/protocol/openid-connect/userinfo',
+                },
+                token: {
+                    maxAge: 600,
+                },
+                responseType: 'code',
+                grantType: 'authorization_code',
+                clientId: 'test',
+                scope: ['openid'],
+                codeChallengeMethod: 'plain',
+            },
+        }
+
+    },
+
+
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
-    axios: {},
+    axios: {
+        baseURL: 'http://localhost/api/v1/frontend'
+    },
+
+    router: {
+        middleware: ['auth']
+    },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {}

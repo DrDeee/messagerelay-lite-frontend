@@ -1,7 +1,7 @@
 <template>
   <client-only>
     <section>
-      <div class="container mt-5 p-3 bg-light border border-dark app">
+      <div class="container mt-5 mb-5 p-3 bg-light border border-dark app">
         <h2>MessageRelay</h2>
         <p class="lead">
           Dies ist nicht das finale MessageRelay! Sobald es in der Messenger AG
