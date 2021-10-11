@@ -1,11 +1,11 @@
+import config from './config'
+
 export default {
-    // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
     target: 'server',
     ssr: true,
 
-    // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
-        title: 'MessageRelay',
+        title: 'MessageRelay Lite',
         htmlAttrs: {
             lang: 'de'
         },
@@ -20,7 +20,6 @@ export default {
         ]
     },
 
-    // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
         'quill/dist/quill.core.css',
         'quill/dist/quill.snow.css',
@@ -28,20 +27,15 @@ export default {
         '~/assets/css/bootstrap.min.css'
     ],
 
-    // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
         { src: '~plugins/quill', ssr: false }
     ],
 
-    // Auto import components: https://go.nuxtjs.dev/config-components
     components: true,
 
-    // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
     buildModules: [],
 
-    // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
-        // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
         '@nuxtjs/auth-next'
     ],
@@ -52,16 +46,19 @@ export default {
             cloud: {
                 scheme: 'oauth2',
                 endpoints: {
-                    authorization: 'https://auth.asklios.de/auth/realms/test/protocol/openid-connect/auth',
-                    token: 'https://auth.asklios.de/auth/realms/test/protocol/openid-connect/token',
-                    userInfo: 'https://auth.asklios.de/auth/realms/test/protocol/openid-connect/userinfo',
+                    authorization: 'https://' + config.keycloakInstance + '/auth/realms/' +
+                        config.keycloakRealm + '/protocol/openid-connect/auth',
+                    token: 'https://' + config.keycloakInstance + '/auth/realms/' +
+                        config.keycloakRealm + '/protocol/openid-connect/token',
+                    userInfo: 'https://' + config.keycloakInstance + '/auth/realms/' +
+                        config.keycloakRealm + '/protocol/openid-connect/userinfo',
                 },
                 token: {
                     maxAge: 600,
                 },
                 responseType: 'code',
                 grantType: 'authorization_code',
-                clientId: 'test',
+                clientId: config.keycloakClient,
                 scope: ['openid'],
                 codeChallengeMethod: 'plain',
             },
@@ -69,16 +66,13 @@ export default {
 
     },
 
-
-    // Axios module configuration: https://go.nuxtjs.dev/config-axios
     axios: {
-        baseURL: 'http://localhost/api/v1/frontend'
+        baseURL: config.apiHost + '/api/v1/frontend'
     },
 
     router: {
         middleware: ['auth']
     },
 
-    // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {}
 }

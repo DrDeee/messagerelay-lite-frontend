@@ -1,7 +1,8 @@
 export const state = () => {
     return {
         messages: [],
-        page: 1
+        page: 1,
+        nextPage: false
     }
 }
 
@@ -13,19 +14,27 @@ export const mutations = {
         state.messages.length = 0
     },
     nextPage(state) {
-        state.page++
+        state.page = state.page + 1
     },
-    pageBack(state) {
-        state.page--
+    setNextPage(state, bool) {
+        state.nextPage = bool
+    },
+    deleteMessage(state, id) {
+        for (const index in state.messages) {
+            if (state.messages[index].id == id)
+                state.messages.splice(index, 1)
+        }
     }
 
 }
 
 export const actions = {
     async loadMessages({ commit, state }) {
-        commit('clear')
         try {
-            const msgs = await this.$axios.$get('/messages?page=' + state)
+            const msgs = await this.$axios.$get('/messages?page=' + state.page)
+            console.log(msgs.length == 25)
+            commit('setNextPage', msgs.length == 25)
+            commit('nextPage')
             for (const msg of msgs) {
                 commit('add', msg)
             }
