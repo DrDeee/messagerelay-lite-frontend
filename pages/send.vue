@@ -66,6 +66,8 @@ export default {
             target: this.target,
           })
           alert('Die Nachricht wurde erfolgreich gesendet!')
+          this.$store.commit('clear')
+          this.$store.dispatch('loadMessages')
           this.$router.push('/')
         } catch (e) {
           alert('Es ist ein Fehler aufgetreten!')
