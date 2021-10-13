@@ -12,6 +12,7 @@ export const mutations = {
     },
     clear(state) {
         state.messages.length = 0
+        state.page = 1
     },
     nextPage(state) {
         state.page = state.page + 1
