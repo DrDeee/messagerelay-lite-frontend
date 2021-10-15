@@ -38,7 +38,7 @@ export default {
         modules: {
           toolbar: {
             container: [
-              ['bold', 'italic', 'underline'],
+              ['bold', 'italic'],
               [{ list: 'bullet' }, { list: 'ordered' }],
               ['emoji'],
             ],
