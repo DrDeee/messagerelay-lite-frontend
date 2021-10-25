@@ -1,0 +1,43 @@
+body {
+    background: url('~/assets/img/background.svg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: 120% 20%;
+    background-size: 120%;
+    background-color: #1b7340;
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background: #cccccc;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(153, 153, 153);
+    border: none;
+}
+
+button.btn {
+    padding: 5px;
+    background-color: #1da64a;
+    color: #f9f7f0;
+    border-radius: 0;
+    box-shadow: 6px 6px 0px -1px #1b7340;
+    -webkit-box-shadow: 6px 6px 0px -1px #1b7340;
+    -moz-box-shadow: 6px 6px 0px -1px #1b7340;
+}
+
+button.btn:hover {
+    transition: 0.2s;
+    background-color: #86cde9;
+    color: #f9f7f0;
+}
+
+button.btn:focus {
+    box-shadow: none;
+}

@@ -24,7 +24,8 @@ export default {
         'quill/dist/quill.core.css',
         'quill/dist/quill.snow.css',
         'quill-emoji/dist/quill-emoji.css',
-        '~/assets/css/bootstrap.min.css'
+        '~/assets/css/bootstrap.min.css',
+        '~/assets/css/styles.css'
     ],
 
     plugins: [
@@ -71,7 +72,7 @@ export default {
     },
 
     router: {
-        middleware: ['auth']
+        //middleware: ['auth']
     },
 
     build: {}

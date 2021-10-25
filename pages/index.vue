@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="btn btn-primary w-100 mb-1" @click="$router.push('/send')">
+    <button class="btn w-100 mb-1" @click="$router.push('/send')">
       Neue Nachricht senden
     </button>
     <hr />

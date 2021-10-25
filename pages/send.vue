@@ -8,11 +8,7 @@
       </select>
     </div>
     <quill-editor :options="options" v-model="content"></quill-editor>
-    <button
-      class="btn btn-primary w-100 mt-2"
-      @click="send()"
-      v-bind:disabled="canSubmit"
-    >
+    <button class="btn w-100 mt-2" @click="send()" v-bind:disabled="canSubmit">
       Absenden
     </button>
     <div class="text-center mt-2">
@@ -53,7 +49,6 @@ export default {
   },
   methods: {
     async send() {
-      console.log(this.target)
       if (
         confirm(
           'Ganz sicher, dass du die Nachricht so wie sie ist absenden willst?' +
@@ -70,7 +65,11 @@ export default {
           this.$store.dispatch('loadMessages')
           this.$router.push('/')
         } catch (e) {
-          alert('Es ist ein Fehler aufgetreten!')
+          console.error(
+            'Error while sending message',
+            JSON.parse(JSON.stringify(e))
+          )
+          alert('Es ist ein Fehler aufgetreten: ' + e.message)
         }
       }
     },
