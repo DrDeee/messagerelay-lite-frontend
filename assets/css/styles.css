@@ -32,6 +32,10 @@ button.btn {
     -moz-box-shadow: 6px 6px 0px -1px #1b7340;
 }
 
+button.btn.danger {
+    background-color: #bb2d3b;
+}
+
 button.btn:hover {
     transition: 0.2s;
     background-color: #86cde9;
@@ -40,4 +44,12 @@ button.btn:hover {
 
 button.btn:focus {
     box-shadow: none;
+}
+
+.msg p {
+    margin-bottom: 0.5rem;
+}
+
+.msg p:last-of-type {
+    margin-bottom: 0;
 }

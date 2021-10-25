@@ -33,7 +33,6 @@ export const actions = {
     async loadMessages({ commit, state }) {
         try {
             const msgs = await this.$axios.$get('/messages?page=' + state.page)
-            console.log(msgs.length == 25)
             commit('setNextPage', msgs.length == 25)
             commit('nextPage')
             for (const msg of msgs) {
