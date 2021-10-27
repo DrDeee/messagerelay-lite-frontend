@@ -24,13 +24,14 @@
         <div class="border-top p-1 fs-6">
           <div class="row">
             <div class="col text-start">
-              <b>{{ msg.author }}</b>
+              {{ msg.target.toUpperCase() }}
             </div>
+            <!--
+            <div class="col text-start">
+              <b>{{ msg.author }}</b>
+            </div> -->
             <div class="col text-center">
               {{ new Date(msg.createdAt).toLocaleString() }}
-            </div>
-            <div class="col text-center">
-              {{ msg.target.toUpperCase() }}
             </div>
             <div class="col-sm text-end mb-1">
               <svg
