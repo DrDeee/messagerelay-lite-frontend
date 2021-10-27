@@ -40,7 +40,7 @@
                 width="18"
                 height="18"
                 fill="currentColor"
-                class="bi bi-info-circle-fill text-success mouse-pointer"
+                class="bi bi-info-circle-fill text-success mouse-pointer me-2"
                 viewBox="0 0 16 16"
               >
                 <path
