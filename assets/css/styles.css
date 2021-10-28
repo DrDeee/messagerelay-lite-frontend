@@ -29,7 +29,8 @@ button.btn {
     -webkit-box-shadow: 6px 6px 0px -1px #1b7340;
     -moz-box-shadow: 6px 6px 0px -1px #1b7340;
     box-shadow: 6px 6px 0px -1px #1b7340;
-    border: none
+    border: none;
+    border-radius: 0;
 }
 
 button.btn.danger {
