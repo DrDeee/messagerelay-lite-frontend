@@ -24,7 +24,9 @@
               </tr>
               <tr>
                 <td class="pr-1">Sender</td>
-                <td>{{ msg.author }}</td>
+                <td>
+                  {{ msg.author }} <code>{{ msg.uid }}</code>
+                </td>
               </tr>
               <tr>
                 <td class="pr-1">Zeit</td>

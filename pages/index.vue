@@ -24,12 +24,11 @@
         <div class="border-top p-1 fs-6">
           <div class="row">
             <div class="col text-start">
+              <b>{{ msg.author }}</b>
+            </div>
+            <div class="col text-center">
               {{ msg.target.toUpperCase() }}
             </div>
-            <!--
-            <div class="col text-start">
-              <b>{{ msg.author }}</b>
-            </div> -->
             <div class="col text-center">
               {{ new Date(msg.createdAt).toLocaleString() }}
             </div>
