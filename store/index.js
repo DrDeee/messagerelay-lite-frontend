@@ -23,7 +23,7 @@ export const mutations = {
     deleteMessage(state, id) {
         for (const index in state.messages) {
             if (state.messages[index].id == id)
-                state.messages.splice(index, 1)
+                state.messages[index].deleted = true
         }
     }
 

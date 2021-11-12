@@ -23,6 +23,12 @@
                 </td>
               </tr>
               <tr>
+                <td class="pr-1">ID</td>
+                <td>
+                  {{ msg.id }}
+                </td>
+              </tr>
+              <tr>
                 <td class="pr-1">Sender</td>
                 <td>
                   {{ msg.author }} <code>{{ msg.uid }}</code>
@@ -36,11 +42,15 @@
                 <td class="pr-1">Ziel</td>
                 <td>{{ msg.target.toUpperCase() }}</td>
               </tr>
+              <tr>
+                <td class="pr-1">Gelöscht</td>
+                <td>{{msg.deleted ? 'Ja' : 'Nein'}}</td>
+              </tr>
             </tbody>
           </table>
         </div>
       </div>
-      <div class="row">
+      <div class="row" v-if="msg.deleted == false">
         <button
           class="col-3 mx-auto mt-2 btn danger"
           @click="deleteMsg = isDeleting = true"
