@@ -59,7 +59,7 @@ export default {
         modules: {
           toolbar: {
             container: [
-              ['bold', 'italic'],
+              ['bold', 'italic', 'strike'],
               [{ list: 'bullet' }, { list: 'ordered' }],
               ['emoji'],
             ],
